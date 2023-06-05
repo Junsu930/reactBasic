@@ -12,8 +12,9 @@
 <script crossorigin src="http://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <!--<script crossorigin src="http://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="http://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> -->
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
 
-<script>
     'use strict';
 
     class LikeButton extends React.Component{
@@ -26,16 +27,18 @@
                 return 'You Liked this.';
             }
 
-            return React.createElement('button', {onClick: ()=>this.setState({liked:true})}, '뿡빵');
+           // return React.createElement('button', {onClick: ()=>this.setState({liked:true})}, '뿡빵');
+           return(
+                <button onClick = {()=> this.setState({liked:true})}>뿡빵</button>
+           );
         }
 
     } // 1% ErrorBoundary
 
-
 </script>
-<script>
-    ReactDOM.render(React.createElement(LikeButton), document.querySelector("#root"));
 
+<script type="text/babel">
+    ReactDOM.createRoot(document.querySelector("#root")).render(<LikeButton/>);
 </script>
 
 </body>
